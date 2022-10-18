@@ -153,8 +153,9 @@ mkdir working-pkg/public -p && cd working-pkg && npm init -y
   }
 }
 ```
-A config file for webpack must be configured.
+The config file for webpack must be configured as:
 - webpack.config.js
+Which should contain a similar configuration as the follwing:
 
 ```js
 const path = require("path");

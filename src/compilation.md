@@ -1,6 +1,30 @@
-# Compilation
-This cargo package will create the artifacts you need from you rust library.
+# Compiler 
+The rust compiler is called ```rustc``` and it is chained with other programmes
+to make the user exerience more consistent. ```rustup``` manages the updates,
+the verison, and installation of the compilers. It makes
+cross-compiling simpler with binary builds of the standard library
+for common platforms. To see to which platform it can compile run:
 
+```terminal
+rustup target list
+```
+To make the compiler able to compile to web assembly you need to add the following
+compiation target to ```rustc```:
+
+```terminal 
+rustup target add wasm32-unknown-unknown
+```
+
+# Compilation
+The ```wasm-pack``` from the rust team provides a framework to port easily the
+wasm artifact you will create from your rust library into the web gluing it with
+some javascript. To install ```wasm-pack``` run:
+
+```temrinal 
+curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+```
+
+This cargo package will create the artifacts you need from you rust library.
 ```sh
 wasm-pack build --target web
 ```
