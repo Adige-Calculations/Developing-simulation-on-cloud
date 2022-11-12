@@ -64,7 +64,7 @@ It is adviced to use it as dependencies for the package you will use:
 .
 ├── Cargo.toml
 ├── node_pkg		# npm generated 	-->    call ./pkg here from the dependencies tab on node_pkg/packages.json 
-├── pkg				# wasm-pack generated 
+├── pkg		# wasm-pack generated 
 ├── src
 └── target      	# cargo generated
 ```
@@ -88,8 +88,7 @@ Will generate in the ```pkg``` directory the file necessary to run the code on t
 ```sh
 wasm-pack build --target web
 ```
-Interesting code snippet to be concious of are in ```<\pkgName\>.js>> which call the ```.wasm``` module and its public functions:
-
+Interesting code snippet to be concious of are in ```<\pkgName\>.js ``` which call the ```.wasm``` module and its public functions:
 ```js
 async function init(input) {
     if (typeof input === 'undefined') {
@@ -177,7 +176,7 @@ module.exports = {
 }
 ```
 
-Checking ```index.html```
+Checking the ```index.html``` entry point:
 ```html
 <!DOCTYPE html>
 <html lang="en">
