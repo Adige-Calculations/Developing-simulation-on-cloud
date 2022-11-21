@@ -8,7 +8,9 @@ wasm-bindgen = "0.2"
 [lib]
 crate-type = ["cdylib", "rlib"]
 ```
-# Automation
+Which tells the compiler to build library compatible with C/C++ and Rust.
+
+## Automation
 This script will help you to run your a pkg created from rust with a WASM module inside:
 
 ## Start script

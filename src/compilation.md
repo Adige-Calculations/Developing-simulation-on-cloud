@@ -36,3 +36,53 @@ The target flag will customize the JS that is emitted and how the WebAssembly fi
 <tr><td> <code class="hljs">web</code> </td><td> <a href="https://rustwasm.github.io/docs/wasm-bindgen/reference/deployment.html#without-a-bundler">Native in browser</a> </td><td> Outputs JS that can be natively imported as an ES module in a browser, but the WebAssembly must be manually instantiated and loaded. </td></tr>
 <tr><td> <code class="hljs">no-modules</code> </td><td> <a href="https://rustwasm.github.io/docs/wasm-bindgen/reference/deployment.html#without-a-bundler">Native in browser</a> </td><td> Same as <code class="hljs">web</code>, except the JS is included on a page and modifies global state, and doesn't support as many <code class="hljs">wasm-bindgen</code> features as <code class="hljs">web</code> </td></tr>
 </tbody></table>
+
+In short term, if you intend to use your WASM module in a plain HTML website, you'll need to tell wasm-pack to target the web.
+Then using a similar pattern to use the module:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn WGPU</title>
+    <style>
+        canvas {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body id="wasm-example">
+  <script type="module">
+      import init from "./pkg/glue_code.js";
+      init().then(() => {
+          console.log("WASM Loaded");
+      });
+  </script>
+</body>
+
+</html>
+```
+
+While if you want to include the wasm module in more complex framework comile it without target and use a
+javascript file to load it into a component such as:
+```js
+const init = await import('./pkg/glue_code.js');
+init().then(() => console.log("WASM Loaded"));
+
+```
+
+
+## Cargo.toml library output requirements 
+The code must be compiled with this tag as compilation output to provide a wasm module 
+
+```toml
+[lib]
+crate-type = ["cdylib", "rlib"]
+```
+
+These lines tell cargo that we want to allow our crate to build a native Rust static library (rlib) and a C/C++ compatible library (cdylib).
