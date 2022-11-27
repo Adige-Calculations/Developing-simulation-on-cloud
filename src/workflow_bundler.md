@@ -1,19 +1,61 @@
+# Workflow to produce a WASM driven package 
+
+
+WebAssembly modules cannot be loaded and executed by the browser directly (e.g. via script elements), they must be downloaded, compiled and instantiated via JavaScript. The WebAssembly specification defines the concept of a ‘host’, which in this case is the browser’s JavaScript engine. A module cannot perform any useful functions without interoperating with the host, most notably WebAssembly modules cannot directly perform any I/O (e.g. they cannot open sockets, access the DOM, write to filesystems, etc). Also, WebAssembly functions are invoked synchronously, the JavaScript host ‘yields’ to the module function, waiting until it returns before resuming.
+
+This chapter introduce how a wasm module should be instanciated on the web using bundler such as Webpack.
+
+
 ## Cargo.toml
+
 A basic config of your toml config file for rust will have this voices:
 
 ```toml
+...
+[features]
+default = ["console_error_panic_hook"]
+
 [dependencies]
+## Interacting  with JS and the DOM
 wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4.30"    # a bridge connecting JavaScript Promises and Rust Futures. It can convert in both directions and is useful when working with asynchronous tasks in Rust, and allows interacting with DOM events and I/O operations.
+js-sys = "0.3.60"                   # Raw wasm-bindgen imports for all the Web's APIs, such as DOM manipulation, setTimeout, Web GL, Web Audio, etc.
+web-sys = "0.3"                     # Provides bindings to various DOM APIs, setTimeout, Web GL, Web Audio, etc.
+
+## Error reporting and logging 
+console_error_panic_hook = { version = "0.1.1", optional = true }  # for logging panic messages to the developer console
+console_log = "0.2.0"
+
+## Dynamic allocation
+wee_alloc = "0.4.5"  # The Wasm-Enabled, Elfin Allocator. A small (~1K uncompressed .wasm) allocator implementation for when code size is a greater concern than allocation performance.
 
 [lib]
 crate-type = ["cdylib", "rlib"]
 ```
 Which tells the compiler to build library compatible with C/C++ and Rust.
 
-## Automation
-This script will help you to run your a pkg created from rust with a WASM module inside:
+## Library building
 
-## Start script
+The ```wasm-pack``` uses the wasm-bindgen crate to build and generate JavaScript binding file.
+Import the wasm-bindgen crate:
+
+```rust
+use wasm_bindgen::prelude::*;
+```
+The function wasm-pack requires "exported" functions must include #[wasm_bindgen] tag.
+
+```rust
+#[wasm_bindgen]
+pub fn add(a: i32, b: i32) -> i32 {
+  return a + b;
+}
+```
+
+## Starting script
+
+Use wasm-pack to build the library and deliver a pyhton server that serve the HTML output.
+The wasm-pack tool has support for a lot of different output types, especially for bundlers
+like Webpack or Rollup. But, since we want an ES6 module in our case, we use the web target below:
 
 ```sh
 #!/bin/sh
@@ -39,6 +81,7 @@ run
 ```
 ## Stop script
 This script will automate the closure of the previous actions:
+
 ```sh
 #!/bin/sh
 
@@ -54,9 +97,10 @@ stop(){
 
 stop
 ```
-# Adviced workflow structure
+## Adviced workflow structure
 
-When you compile your javascript package with:
+When you compile your your library, ```wasm-bindgen``` will create the glue code in javascript to be used, in case of using the flag ```--target webweb```
+the artifacts will ready to be imported on the :
 ```sh
 wasm-pack build --target web
 ```
@@ -65,8 +109,8 @@ It is adviced to use it as dependencies for the package you will use:
 ```sh
 .
 ├── Cargo.toml
-├── node_pkg		# npm generated 	-->    call ./pkg here from the dependencies tab on node_pkg/packages.json 
-├── pkg		# wasm-pack generated 
+├── node_pkg		# npm generated 	    -->  call ./pkg here from the dependencies tab on node_pkg/packages.json 
+├── pkg		        # wasm-pack generated 
 ├── src
 └── target      	# cargo generated
 ```
@@ -202,7 +246,7 @@ Finally you need to call the package ```pkg``` in your lauch package in Js file 
 import init, {add} from "pkg";
 
 async function start() {
-  const wasm = await init();
+  const wasm = await init();    // fetch the wasm module
   console.log(add(2, 3));
 }
 

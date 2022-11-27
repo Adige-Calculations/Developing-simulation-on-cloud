@@ -1,4 +1,4 @@
-#Multiples threads
+# Multiples threads
 
 A code that resemble very well the scope of multithreading is:
 ```rust
