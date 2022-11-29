@@ -1,12 +1,12 @@
 <div align="center">
   <p align="center">
     <a href="https://www.adigecalculations.com/">
-    <img src="src/images/powered_by_adige.png" alt="MS handbook logo" >
+    <img src="src/images/powered_by_adige.svg" alt="MS handbook logo" >
   </p>
-  <strong>This book describes the usual practices a medium/advanced OpenFoam® user takes during CFD smulations workflows. </strong>
+  <strong>This book describes the usual practices and tools I use to port my simulation workflows into the cloud. </strong>
 
   <h3>
-    <a href="https://github.com/Adige-Calculations/OpenFOAM-handbook">Contributing</a>
+    <a href="https://github.com/mSamiolo/MS-LearingBook.git">Contributing</a>
     <span> | </span>
     <a href="https://www.adigecalculations.com/contact">Chat</a>
   </h3>
@@ -22,7 +22,7 @@ cloud technology. However, keep in mind it should be seen as book to take inspir
 
 [Open issues for improving the hand-book.][book-issues]
 
-[book-issues]: https://github.com/Adige-Calculations/OpenFOAM-handbook/issues
+[book-issues]: https://github.com/mSamiolo/MS-LearingBook.git/issues
 
 ## Building the Book
 
