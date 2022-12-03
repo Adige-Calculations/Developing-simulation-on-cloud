@@ -3,7 +3,7 @@ authors = ["mSamiolo"]
 language = "en"
 multilingual = false
 src = "src"
-title = "MS-LearningBook"
+title = "Developing simulations on Cloud"
 
 [output.html]
 mathjax-support = true
