@@ -1,4 +1,4 @@
-# Html
+# Html (HyperText Markup Language)
 
 When you present an HTML document to a browser, it creates an object model 
 for the document, a Document Object Model (DOM). This DOM describes the

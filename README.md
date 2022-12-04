@@ -1,7 +1,7 @@
 <div align="center">
   <p align="center">
     <a href="https://www.adigecalculations.com/">
-    <img src="src/images/powered_by_adige.svg" alt="MS handbook logo" >
+    <img src="src/images/powered_by_adige.png" alt="MS handbook logo" >
   </p>
   <strong>This book describes the usual practices and tools I use to port my simulation workflows into the cloud. </strong>
 
