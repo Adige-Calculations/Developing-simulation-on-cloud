@@ -24,10 +24,12 @@ Compiled a function that retuns the power of an integer such as:
 pub fn power(number: u32, pow: u32) -> u32 {
      number.pow(pow)
 }
+
+...
 ```
 
 the corresponding .wat artifacts will look similar to this:
-```wat
+```c
 (module
   (type (;0;) (func (param i32 i32) (result i32)))
   (func (;0;) (type 0) (param i32 i32) (result i32)

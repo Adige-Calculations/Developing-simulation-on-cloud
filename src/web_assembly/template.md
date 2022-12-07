@@ -10,7 +10,7 @@ project to be used with [`wasm-pack`][wasm-pack].
 
 Use `cargo generate` to clone this project template:
 
-```
+```sh
 cargo install cargo-generate
 cargo generate --git https://github.com/rustwasm/wasm-pack-template.git
 ```
@@ -22,7 +22,7 @@ packages from npm that were created from Rust with [`wasm-pack`][wasm-pack].
 
 Use it with `npm init`:
 
-```
+``` sh
 mkdir my-project
 cd my-project/
 npm init wasm-app
@@ -40,7 +40,7 @@ Webpack build pipeline with Webpack's [`rust-loader`][rust-loader].
 
 Use it with `npm init`:
 
-```
+```sh
 mkdir my-project
 cd my-project/
 npm init rust-webpack

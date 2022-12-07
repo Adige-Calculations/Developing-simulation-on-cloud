@@ -79,12 +79,14 @@ An application of these method is shown by this examples:
 ```js
 // Return first element "main"
 document.querySelector("main")
-// Get the first element with class="maincontent":
+// Get the first element with attribute: class="maincontent":
 document.querySelector(".maincontent")
 // Return last object
 document.querySelector("main li:last-child")
 // Return a node list containing each element object matching the query
 document.querySelectorAll("main li")
+// Return the first element with attribute: id="glCanvas"
+document.querySelector("#glCanavs")
 ```
 Another example:
 ```js
@@ -188,4 +190,47 @@ which return:
 
 ```html
 <img class="feat-img" src="logo.svg" alt="The company logo" style="display: block;">
+```
+
+#  Event listener
+
+An event listener is a method added to a target:
+
+```js
+.addEventListener()
+```
+usually with this structure
+
+```js
+// target can be "button"
+// event can be "click"
+// callback can be "addone" if it is callback |  "addone(x, y, z ...)" if it is a function
+target.addEventListener(event, callback, [, options])
+```
+
+Option is tipically ```false``` to ensure default behaviour of the function and it 
+is rarely used.
+
+Event listeners can be appended to any element inside the window and inside the DOM
+and you can trigger whatever function you want either using an anonymous function inside
+the event listener or by using a callback.
+
+``` js
+const button = document.querySelector(".cta-button");
+const posX = document.querySelector(".posX span");
+const posY = document.querySelector(".posY span");
+
+// Log when the button is clicked in the console.
+button.addEventListener("click", () => {
+  button.classList.toggle("active");
+  console.log("Button was clicked!");
+}, false);
+
+// Update the x and y displays to show the current mouse position.
+const mousePosition = (event) => {
+  posX.innerText = event.pageX;
+  posY.innerText = event.pageY;
+};
+
+window.addEventListener("mousemove", mousePosition, false);
 ```

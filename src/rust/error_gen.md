@@ -11,8 +11,6 @@ A variant is an enum with mutiple possibility
 
 ## Rule 5: Create the Debug, Display, Error trait in this order  
 Because the Error trait is defined as a sub trait of Debug and Display
-[!(images/errors)]
-
 
 As a reminder, here are the 5 Guidelines for creating an error type:
 (1) Use an `enum` for your error type
@@ -50,6 +48,7 @@ pub enum DolphinError {
     Hungry,
 }
 ```
+[![title](./images/error_advice.png)]
 
 A usefull tool is ```anyhow``` which recon if an entitiy has its own set of errors:
 

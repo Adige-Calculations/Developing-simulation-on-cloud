@@ -19,10 +19,24 @@ with a scripting language such as JavaScript.
 
 ## Description of html structure
 
+All HTML documents must start with a document type declaration: <!DOCTYPE html>.
+The HTML document itself begins with <html> and ends with </html>.
+The visible part of the HTML document is between <body> and </body>. 
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>My First Heading</h1>
+	<p>My first paragraph.</p>
+</body>
+</html> 
+```
+
 Given the following html element:
 
-```js
-  <article class="backpack" id="everyday">
+```html
+  <article class="backpack blue" id="everyday">
   Html content
   </article>
 ```
@@ -30,9 +44,11 @@ The descrption of the html structure is:
 
 - element type = article
 - element attributes = [class, id]
-- element nested html = Html content
+- element class = [backpack, blue]
+- element innerText = Html content
 
 ## JS code injection standard
+Code must be executed outside the ```<body> </body>``` tag;
 Modern pattern states that the ```<script> </script>``` tag lines must be 
 included in the ```<head> </head>```. To permit a the total redering of the html
 content on the page page it is necessary to use the ```<script>  ...  deref </script>```
@@ -48,11 +64,19 @@ is rendered as follows:
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Module demo</title>
     <script src="script.js" defer></script>
   </head>
-  <body></body>
+  <body>
+	...
+  </body>
 </html>
 ```
 
 Here the body tag can be redered and then JS will be executed
+
+## HTML Links
+
+HTML links are defined with the <a> tag:
+```html
+<a href="https://www.adigecalculations.com"> This is a link to our website </a> 
+```

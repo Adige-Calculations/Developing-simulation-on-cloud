@@ -4,14 +4,58 @@ Javascript (JS) is an object oriented language. It is useful to think at JS as a
 on top of the content, HTML and its presentation, CSS.
 The most basic way to interact is to inject new HTML content into the document.
 
-## Types
+## Operator
+Only the more criptic operaor are covered for bervity reason. The question mark operator follows the 
+following rules:
+
+```js
+//syntax
+condition ? exprIfTrue : exprIfFalse
+```
+such as:
+
+```js
+function getFee(isMember) {
+  return (isMember ? '$2.00' : '$10.00');
+}
+
+console.log(getFee(true));
+// expected output: "$2.00"
+
+console.log(getFee(false));
+// expected output: "$10.00"
+
+console.log(getFee(null));
+// expected output: "$10.00"
+```
+While the ```void``` operator evaluates the given expression and then returns "undefined":
+
+```js
+const output = void 1;
+console.log(output);
+// expected output: "undefined"
+```
+such as:
+
+```js
+void function foo() {
+  console.log("foo is executed");
+}();
+// expected output: foo is executed
+```
+
+## Primitives
+
+Being JS a weakly type language the types are deduced from the text:
+ 
 ```js
 // String:
 let stringDemo = "A string of text.";
 
-// Numbes:
+// Integer point numbers
 let integerDemo = 4;
 
+// Floating point numbers
 let floatDemo = 5.6;
 
 // Boolean:
@@ -22,7 +66,6 @@ let nullDemo = null;
 
 // Undefined:
 let undefinedDemo;
-
 let undefinedAssignedDemo = undefined;
 
 // Object:
@@ -38,8 +81,11 @@ const collection = ["piggy", integerDemo, 5, true]
 
 ## Variable allocation  
 
+Each data must be stored in memory and an allocation scheme for parsing the data is presented.
+
 ### var
-Varible can be issued, keep in mind they are globally scoped i.e. if you change its value
+
+Varibles can be issued, keep in mind they are globally scoped i.e. if you change its value
 inside a function the change will be reflected in the global code.
 
 ```js
@@ -47,14 +93,16 @@ var x = 4, y = "variable";  // mutable content - it is possible to be reassigned
 ```
 
 ### let
-It's a ```var``` with local scope
+It's a ```var``` with local scope:
 
 ```js
 let x = 5;
 ```
 
 ### const 
-Works like a let but it cannot change its state
+Works like a let but it, cannot change its state and it is valid 
+in the parents section of code i.e. it does not goes out of scope 
+with code sections:
 
 ```js
 const x = 5;
@@ -65,12 +113,19 @@ x = 9        // Problem: Assignemnt to constant value
 A tipical function is implemented as:
 
 ### Traditional function expressions
-The traditional method:
+The traditional method to write an anonimus function is the following:
 
 ```js
-function(a, b) {
+function (a, b) {
 	... 
 	return c 
+}
+```
+
+An example where you declare the name of a function can be:
+```js
+function someName () {
+	...
 }
 ```
 ### Arrow function expressions
@@ -80,8 +135,9 @@ A methode introduced with ES6 and its becoming more and more common in modern JS
 const do_actions = () => { ... }  // To execute run:   do_actions(); 
 (a) => {return a}
 ```
-They are a simpler way to represent a function.
-Arrow function can be called only after its declaration hence forcing good code writing.
+They are a simpler way to represent a function, but keep in mind that you cannot use the 
+"this" object to call the object itself.
+Furthermore the arrow function can be called only after its declaration hence forcing good code writing.
 
 ## Object
 An object is instanciate in this way
@@ -194,4 +250,16 @@ const printHTML = (number) => {
   document.querySelector("main").append(tipTable);
 };
 
+...
 ```
+
+## Event reference
+
+Events can be look at as "interesting changes" in the system. A well listed exaplnation of 
+these possible events can be found at:
+- https://developer.mozilla.org/en-US/docs/Web/Events
+
+### How do you capture the event object in an event listener?
+
+The event object is automatically passed as a parameter to the callback function. 
+Simply name and use the parameter.
