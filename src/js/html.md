@@ -80,3 +80,21 @@ HTML links are defined with the <a> tag:
 ```html
 <a href="https://www.adigecalculations.com"> This is a link to our website </a> 
 ```
+## VS code extentions
+
+HTML and CSS content can be automatized using a built in extention called Emmet. To short cut boilerplate code type in the text editor: "!" to gerate the code such as:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+```
