@@ -1,6 +1,12 @@
 # Error generation
 
-## Rule 1: An error must be enum
+| Rules    |               |Comment|
+|----------|:-------------:| |
+|   Rule 1 |  An error must be enum |
+|   Rule 2 |    centered   |
+|   Rule 3 | right-aligned |
+|   Rule 4 | | 
+|   Rule 5 | |## Rule 1:Rule  
 
 ## Rule 2: Group errors as variants until it makes sense, do not be afraid of making long variants
 A variant is an enum with mutiple possibility

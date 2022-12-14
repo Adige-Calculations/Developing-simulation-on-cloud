@@ -1,4 +1,4 @@
-O# Documentation
+# Documentation
 
 The introduction of the documentation must be written on this format:
 
