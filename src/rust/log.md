@@ -1,7 +1,8 @@
-#Logging
+# Log files 
 
-If you want to output info from yout code, in what ever way, such are console, file, cloud providers...
-You need to call ```log``` capabilities. 
+If you want to output info from your code, in what ever way, such are console, file, cloud providers...
+You need to call the ```log``` capabilities. 
+
 ## In library
 
 You have to mark the entity of your logs inside the code steps.

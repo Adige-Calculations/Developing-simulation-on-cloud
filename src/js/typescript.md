@@ -3,7 +3,7 @@
 To start using TypeScript ou need the compiler to be installed, on terminal:
 
 ```sh
-npm install -g typescript
+sudo npm install -g typescript
 tsc --version
 ```
 

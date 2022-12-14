@@ -1,1 +1,4 @@
 book
+example/webgl/*.js
+example/webgl/node_modules
+example/webgl/package-lock.json

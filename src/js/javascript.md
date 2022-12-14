@@ -1,6 +1,6 @@
 # Javascript
 
-Javascript (JS) is an object oriented language. It is useful to think at JS as an interactive layer 
+Javascript (JS) is an object oriented language. It is useful to think at it as an interactive layer 
 on top of the content, HTML and its presentation, CSS.
 The most basic way to interact is to inject new HTML content into the document.
 

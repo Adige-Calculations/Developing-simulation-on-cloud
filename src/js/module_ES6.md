@@ -16,12 +16,8 @@ export default class User {
     }
 }
 
-export printNamr(user) {
+export printName(user) {
     console.log('User`s name is ${user.name}')
-}
-
-export printAge(user) {
-    console.log('User is ${user.age} years old')
 }
 ```
 It is possible to export variable a the end of a file:
@@ -38,12 +34,8 @@ printName(user) {
     console.log('User`s name is ${user.name}')
 }
 
-printAge(user) {
-    console.log('User is ${user.age} years old')
-}
-
 export default User
-export { printName, printAge }
+export { printName }  // Non default export
 ```
 
 In ```main.js``` you can import the <b> default </b> object from ```user.js```:

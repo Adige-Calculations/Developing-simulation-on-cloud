@@ -23,6 +23,7 @@
 
 - [JavaScript](./js/javascript.md)
 	- [Module](./js/module_ES6.md)
+	- [npm](./js/npm.md)
 	- [HTML](./js/html.md)
 	- [Html manipulation](./js/html_manipulation.md)
 	- [CSS](./js/CSS.md)

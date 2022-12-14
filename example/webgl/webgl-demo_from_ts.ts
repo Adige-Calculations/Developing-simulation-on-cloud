@@ -1,3 +1,6 @@
+import { initBuffers } from "./init-buffers";  
+import { drawScene } from "./draw-scene";
+
 function main() {
   const canvas: HTMLCanvasElement | null = document.querySelector("#glcanvas");
 
@@ -59,6 +62,8 @@ function main() {
     },
     modelViewMatrix: gl.getUniformLocation(shaderProgram, "uModelViewMatrix"),
   };
+
+  const buffer = initBuffers(gl);
 
   
 }

@@ -1,21 +1,28 @@
 # Error generation
 
-| Rules    |               |Comment|
-|----------|:-------------:| |
-|   Rule 1 |  An error must be enum |
-|   Rule 2 |    centered   |
-|   Rule 3 | right-aligned |
-|   Rule 4 | | 
-|   Rule 5 | |## Rule 1:Rule  
+|   <b>Rule 1</b> |  An error must be enum |
+|   <b>Rule 2</b> |  Group errors as variants until it makes sense, do not be afraid of making long variants   |
+|   <b>Rule 3</b> |  Use your self-made errors in your code  |
+|   <b>Rule 4</b> |  Your enum must be non exhausitve | 
+|   <b>Rule 5</b> |  Create the ```Debug```, ```Display```, ```Error``` trait in this order|
 
-## Rule 2: Group errors as variants until it makes sense, do not be afraid of making long variants
+
+## Rule 2: 
 A variant is an enum with mutiple possibility
 
-## Rule 3: Use your self-made errors in your code 
 
-## Rule 4: Your enum must be non exhausitve 
+## Rule 4:  
+To be then possible refactor the code adding a new errors
 
-## Rule 5: Create the Debug, Display, Error trait in this order  
+```rust
+#[non_exhaustive]
+pub enum Error {
+    Message(String),
+    Other,
+}
+```
+
+## Rule 5:   
 Because the Error trait is defined as a sub trait of Debug and Display
 
 As a reminder, here are the 5 Guidelines for creating an error type:
@@ -54,7 +61,7 @@ pub enum DolphinError {
     Hungry,
 }
 ```
-[![title](./images/error_advice.png)]
+<img src="../images/error_advice.png"></img>
 
 A usefull tool is ```anyhow``` which recon if an entitiy has its own set of errors:
 
