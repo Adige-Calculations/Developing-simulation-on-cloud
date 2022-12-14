@@ -22,10 +22,11 @@
 	- [Graphics](./rust/wgpu.md)
 
 - [JavaScript](./js/javascript.md)
-	- [HTML](./js/html.md)
 	- [Module](./js/module_ES6.md)
+	- [HTML](./js/html.md)
 	- [Html manipulation](./js/html_manipulation.md)
 	- [CSS](./js/CSS.md)
+	- [TypeScript](./js/typescript.md)
 
 - [Lattice boltzmann simualtions](./lattice_botzmann_simulations/lbm.md)
  	- [Mesh](./lattice_botzmann_simulations/mesh.md)

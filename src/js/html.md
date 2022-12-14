@@ -47,16 +47,12 @@ The descrption of the html structure is:
 - element class = [backpack, blue]
 - element innerText = Html content
 
-## JS code injection standard
+## Javascript location standard
 Code must be executed outside the ```<body> </body>``` tag;
 Modern pattern states that the ```<script> </script>``` tag lines must be 
 included in the ```<head> </head>```. To permit a the total redering of the html
-content on the page page it is necessary to use the ```<script>  ...  deref </script>```
-tag (```<script>  ...  async </script>``` acts in a similar manner) to permit at 
-the js code to be executed after the rendering of the html. If the script is set 
-to "async", the JS script run when the module is fully loaded (hence download 
-completed). Instead if the script is set to "defer", when the entire HTML page 
-is rendered as follows:
+content on the page before the code execute it is necessary to use the ```<script>  ...  deref </script>```
+tag 
 
 ```html
 <!DOCTYPE html>
@@ -72,7 +68,10 @@ is rendered as follows:
 </html>
 ```
 
-Here the body tag can be redered and then JS will be executed
+Above the body tag can be redered and then JS will be executed. The tag ```<script>  ...  async </script>```
+acts in a similar way, if the script is set to "async", the JS script run when
+the module is fully loaded (hence download completed). Instead if the script
+is set to "defer".
 
 ## HTML Links
 
