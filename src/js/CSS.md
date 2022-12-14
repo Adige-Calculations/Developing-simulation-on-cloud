@@ -1,4 +1,6 @@
-# CSS
+# CSS (Cascade Style Sheet)
+
+The main pourpose of CSS is to give a style to your html page.
 
 ```html
 <!DOCTYPE html>
