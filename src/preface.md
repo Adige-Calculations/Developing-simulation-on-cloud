@@ -14,7 +14,6 @@ search. This will allow you to enrich or resolve a problem in the shortest possi
 
 --------------------------------------------------------------
 
-
 ## How to interpret the text:
 
 | Structure    | Meaning             |

@@ -192,6 +192,14 @@ which return:
 <img class="feat-img" src="logo.svg" alt="The company logo" style="display: block;">
 ```
 
+### Example 3
+ A new canvas genarted by javascript, to be inserted on the body element:
+
+ ```js
+const canvas = document.createElement('canvas');
+document.querySelector('body').appendChild(canvas);
+ ```
+
 #  Event listener
 
 An event listener is a method added to a target:

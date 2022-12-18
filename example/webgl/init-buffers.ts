@@ -1,9 +1,9 @@
 function initBuffers(gl: WebGLRenderingContext) {
-    const positionBuffers = initPositionBuffer(gl)
+  const positionBuffers = initPositionBuffer(gl);
 
-    return {
-        postion: positionBuffers,
-    }
+  return {
+    postion: positionBuffers,
+  };
 }
 
 function initPositionBuffer(gl: WebGLRenderingContext) {

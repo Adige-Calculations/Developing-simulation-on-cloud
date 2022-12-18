@@ -21,16 +21,25 @@
 	- [Test](./rust/tests.md)
 	- [Graphics](./rust/wgpu.md)
 
+- [HTML](./HTML/html.md)
+
+
 - [JavaScript](./js/javascript.md)
-	- [Module](./js/module_ES6.md)
-	- [npm](./js/npm.md)
-	- [HTML](./js/html.md)
-	- [Html manipulation](./js/html_manipulation.md)
+	- [HTML manipulation](./js/html_manipulation.md)
+	- [ES modules](./js/module_ES6.md)
+	- [NPM modules](./js/npm.md)
 	- [CSS](./js/CSS.md)
 	- [TypeScript](./js/typescript.md)
+	- [Bundling](./js/bundling.md)
 
 - [Lattice boltzmann simualtions](./lattice_botzmann_simulations/lbm.md)
  	- [Mesh](./lattice_botzmann_simulations/mesh.md)
  	- [Numerical implementation](./lattice_botzmann_simulations/num_schemes.md)
 
-- [Visualization](./visualization/webgl.md)
+- [Visualization](./visualization/visualization.md)
+	- [WebGL](./visualization/webgl.md)
+		- [Shader generation](./visualization/webgl/create_a_shader.md)
+		- [Uniform & Attributes](./visualization/webgl/uniform&attributes.md)
+	- [Three.js](./visualization/three.js/three.js.md)
+
+	

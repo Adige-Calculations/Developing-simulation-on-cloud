@@ -2,7 +2,7 @@ import { mat4 } from 'gl-matrix'
 
 function drawScene(
   gl: WebGLRenderingContext,
-  programInfo: string,
+  programInfo: any,
   buffers: WebGLBuffer
 ) {
   gl.clearColor(0.0, 0.0, 0.0, 1.0); // Clear to black, fully opaque
@@ -22,7 +22,14 @@ function drawScene(
   // and 100 units away from the camera.
 
   const fieldOfView = (45 * Math.PI) / 180; // in radians
-  const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
+  const canvas = gl.canvas as HTMLCanvasElement;
+
+  // if (canvas = OffscreenCanvas) {
+  //   alert("Canvas is not an HTMLCanvasElement, but an Offsceen canavs")
+  //   return;
+  // }
+
+  const aspect = canvas.clientWidth / canvas.clientHeight;
   const zNear = 0.1;
   const zFar = 100.0;
   const projectionMatrix = mat4.create();
@@ -71,7 +78,7 @@ function drawScene(
 
 // Tell WebGL how to pull out the positions from the position
 // buffer into the vertexPosition attribute.
-function setPositionAttribute(gl, buffers, programInfo) {
+function setPositionAttribute(gl: WebGLRenderingContext, buffers, programInfo) {
   const numComponents = 2; // pull out 2 values per iteration
   const type = gl.FLOAT; // the data in the buffer is 32bit floats
   const normalize = false; // don't normalize

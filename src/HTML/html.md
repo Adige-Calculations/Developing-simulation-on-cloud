@@ -26,6 +26,10 @@ The visible part of the HTML document is between the ```<body>``` tag.
 ```html
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Web Page</title>
+  </head>
 <body>
 	<h1>My First Heading</h1>
 	<p>My first paragraph.</p>
@@ -58,7 +62,7 @@ tag
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js" defer></script>
   </head>
@@ -93,7 +97,6 @@ HTML and CSS content can be automatized using a built in extention called Emmet.
     <title>Document</title>
 </head>
 <body>
-    
 </body>
 </html>
 ```

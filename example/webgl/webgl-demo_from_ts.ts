@@ -4,7 +4,7 @@ import { drawScene } from "./draw-scene";
 function main() {
   const canvas: HTMLCanvasElement | null = document.querySelector("#glcanvas");
 
-  if (canvas === null) {
+  if (!canvas) {
     alert("Unable to find the element with id: glcanvas.");
     return;
   }
@@ -12,7 +12,7 @@ function main() {
   const gl: WebGLRenderingContext | null = canvas.getContext("webgl");
 
   // Only continue if WebGL is available and working
-  if (gl === null) {
+  if (!gl) {
     alert(
       "Unable to initialize WebGL. Your browser or machine may not support it."
     );

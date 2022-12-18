@@ -1,11 +1,10 @@
 # Javascript ES6
-
+Modularity in code developemnt is essential, JS manage modules in two different ways if the code is deployed on the web or locally.
 ECMAScript 2015 was the second major revision to JavaScript.
 ECMAScript 2015 is also known as ES6 and ECMAScript 6.
 
-# Module
-
-Wring a file called ```user.js```. To export user in a file called ```main.js``` in line:
+## Module
+Writing a file called ```user.js```. To export user in a file called ```main.js``` in line:
 
 ```js
 // default export 
