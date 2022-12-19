@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import { GUI } from "dat.gui";
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import import_file from "./import_file";
 
 /**
  * A class to set up some basic scene elements to minimize code in the
@@ -91,14 +93,11 @@ export default class BasicScene extends THREE.Scene {
       this.add(new THREE.PointLightHelper(light, 0.5, 0xff9900));
     }
 
-    // Creates the geometry + materials
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshPhongMaterial({ color: 0xff9900 });
-    let cube = new THREE.Mesh(geometry, material);
-    cube.position.y = 0.5;
-
     // add to scene
-    this.add(cube);
+    const external_file_import = import_file();
+
+    get_external_geometry(this);
+    this.scale;
 
     // setup Debugger
     if (debug) {
@@ -110,19 +109,6 @@ export default class BasicScene extends THREE.Scene {
         lightGroup.add(this.lights[i], "visible", true);
       }
       lightGroup.open();
-
-      // Add the cube with some properties
-      const cubeGroup = this.debugger.addFolder("Cube");
-      cubeGroup.add(cube.position, "x", -10, 10);
-      cubeGroup.add(cube.position, "y", 0.5, 10);
-      cubeGroup.add(cube.position, "z", -10, 10);
-      cubeGroup.open();
-
-      // Add camera to debugger
-      const cameraGroup = this.debugger.addFolder("Camera");
-      cameraGroup.add(this.camera, "fov", 20, 80);
-      cameraGroup.add(this.camera, "zoom", 0, 1);
-      cameraGroup.open();
     }
   }
 
@@ -144,4 +130,23 @@ export default class BasicScene extends THREE.Scene {
       renderer.setSize(window.innerWidth, window.innerHeight);
     }
   }
+}
+
+function get_external_geometry(scene: THREE.Scene) {
+  const loader = new OBJLoader();
+
+  loader.load(
+    "./models/torous.obj",
+    (object) => {
+
+      object.position.y = 0.5;
+
+      // const material = new THREE.MeshPhongMaterial({ color: 0xff9900 });
+      scene.add(object);
+    },
+    undefined,
+    function (error) {
+      console.log(error);
+    }
+  );
 }
