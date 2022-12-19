@@ -1,0 +1,24 @@
+{
+  "name": "three.js-typescript",
+  "version": "1.0.0",
+  "description": "Examples of how the threee.js library is used in a statically typed language",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc main.ts"
+  },
+  "author": "Mattia Samiolo",
+  "license": "ISC",
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "three": "^0.147.0"
+  },
+  "devDependencies": {
+    "@types/dat.gui": "^0.7.7",
+    "@types/three": "^0.146.0",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}

@@ -41,5 +41,6 @@
 		- [Shader generation](./visualization/webgl/create_a_shader.md)
 		- [Uniform & Attributes](./visualization/webgl/uniform&attributes.md)
 	- [Three.js](./visualization/three.js/three.js.md)
+		- [First scence](./visualization/three.js/first-scence.md)
 
 	
